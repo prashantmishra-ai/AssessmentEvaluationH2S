@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Question</title>
+</head>
+<body>
+    <h1>POST NEW QUESTION</h1>
+    <form action="/newquestion" method="post">
+        {% csrf_token %}
+    <h2>Enter Question Here: </h2>
+    <div id="paper">
+    <input type="text" name="question" required><br>
+    <h2>Enter Answer Here: </h2>
+    <input type="text" name="answer" required>
+    
+    </div>
+    <a id='addqns'> Add More</a>
+    <button type="submit">Post Question</button>
+    </form>
+    <script>
+        var survey_options = document.getElementById('paper');
+        var add_more_fields = document.getElementById('addqns');
+        add_more_fields.onclick = function(){
+            var newField = document.createElement('input');
+            var newAnswerField = document.createElement('input')
+            newField.setAttribute('type','text');
+            newAnswerField.setAttribute('type','text');
+            newField.setAttribute('name','question');
+            newAnswerField.setAttribute('name','answer');
+            newField.setAttribute('placeholder','Enter your Question');
+            newAnswerField.setAttribute('placeholder','Enter You Answer');
+            survey_options.appendChild(newField);
+            survey_options.appendChild(newAnswerField);
+
+          }
+    </script>
+</body>
+</html>

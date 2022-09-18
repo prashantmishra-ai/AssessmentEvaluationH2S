@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Evaluation</title>
+</head>
+<body>
+    <h1>Assessment Evaluation</h1>
+    <h1>Welcome {{username}}!</h1>
+    <h2>Homepage</h2><br>
+    {% if newquestion == 'NA' %}
+    <h1>No Question at the Moment</h1>
+    {% else %}
+    <strong>Q.{{newquestion}}</strong><br>
+    <form action="/submit" method="post">
+        {% csrf_token %}
+        <label for="student">Enter the Registration Number: </label>
+        <input type="text" name="student" value="{{regno}}" disabled required>
+        <br>
+        <label for="answer">Enter Your Answer Here: </label>
+        <textarea name="answer" cols="30" rows="10" placeholder='Your Response' required></textarea>
+        <button type="submit">Submit Answer</button>
+    </form>
+    {% endif %}
+</body>
+</html>
